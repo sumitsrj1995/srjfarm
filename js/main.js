@@ -173,30 +173,74 @@
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link');
 
-        if (!menuToggle || !mobileMenu) return;
+        if (!menuToggle || !mobileMenu) {
+            console.warn('Mobile menu elements not found', {
+                menuToggle: !!menuToggle,
+                mobileMenu: !!mobileMenu
+            });
+            return;
+        }
+        
+        console.log('Mobile menu initialized', {
+            menuToggle: menuToggle,
+            mobileMenu: mobileMenu,
+            menuClose: menuClose
+        });
 
-        // Open menu
-        menuToggle.addEventListener('click', function(e) {
+        // Open menu - WebView compatible (use both click and touch events)
+        function handleMenuToggle(e) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log('Menu toggle clicked'); // Debug log
             openMobileMenu();
-        });
-
-        // Close menu
-        if (menuClose) {
-            menuClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                closeMobileMenu();
-            });
         }
 
-        // Close menu when clicking overlay
-        mobileMenu.addEventListener('click', function(e) {
-            if (e.target === mobileMenu) {
+        // Add multiple event listeners for WebView compatibility
+        menuToggle.addEventListener('click', handleMenuToggle, { passive: false });
+        menuToggle.addEventListener('touchend', handleMenuToggle, { passive: false });
+        
+        // Also handle touchstart to prevent default behavior
+        menuToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        // Close menu - WebView compatible
+        if (menuClose) {
+            function handleMenuClose(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                console.log('Close button clicked'); // Debug log
+                closeMobileMenu();
+                return false;
+            }
+            
+            // Multiple event handlers for WebView compatibility
+            menuClose.addEventListener('click', handleMenuClose, { passive: false, capture: true });
+            menuClose.addEventListener('touchend', handleMenuClose, { passive: false, capture: true });
+            menuClose.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }, { passive: false, capture: true });
+            
+            // Also try mousedown for desktop
+            menuClose.addEventListener('mousedown', handleMenuClose, { passive: false, capture: true });
+        } else {
+            console.warn('Close button not found');
+        }
+
+        // Close menu when clicking overlay - WebView compatible
+        function handleOverlayClick(e) {
+            // Only close if clicking directly on the overlay, not on the panel
+            if (e.target === mobileMenu || e.target.classList.contains('mobile-menu')) {
+                console.log('Overlay clicked, closing menu');
                 closeMobileMenu();
             }
-        });
+        }
+        
+        mobileMenu.addEventListener('click', handleOverlayClick, { passive: true });
+        mobileMenu.addEventListener('touchend', handleOverlayClick, { passive: true });
 
         // Close menu when clicking a link
         mobileMenuLinks.forEach(link => {
@@ -224,20 +268,46 @@
 
         // Open menu function
         function openMobileMenu() {
+            console.log('Opening mobile menu'); // Debug log
+            console.log('Menu element:', mobileMenu);
+            console.log('Menu classes before:', mobileMenu.className);
+            
+            // Ensure menu is visible
+            mobileMenu.style.display = 'block';
             mobileMenu.classList.add('mobile-menu--open');
             menuToggle.classList.add('header__menu-toggle--open');
             menuToggle.setAttribute('aria-expanded', 'true');
             mobileMenu.setAttribute('aria-hidden', 'false');
             preventBodyScroll();
+            
+            // Force reflow for WebView - multiple methods
+            mobileMenu.offsetHeight;
+            void mobileMenu.offsetWidth;
+            
+            // Use requestAnimationFrame for WebView
+            requestAnimationFrame(function() {
+                mobileMenu.style.display = 'block';
+                console.log('Menu classes after:', mobileMenu.className);
+                console.log('Menu should be visible now');
+            });
         }
 
         // Close menu function
         function closeMobileMenu() {
+            console.log('Closing mobile menu'); // Debug log
             mobileMenu.classList.remove('mobile-menu--open');
             menuToggle.classList.remove('header__menu-toggle--open');
             menuToggle.setAttribute('aria-expanded', 'false');
             mobileMenu.setAttribute('aria-hidden', 'true');
             allowBodyScroll();
+            
+            // Force reflow for WebView
+            requestAnimationFrame(function() {
+                // Ensure menu is hidden
+                if (!mobileMenu.classList.contains('mobile-menu--open')) {
+                    console.log('Menu closed successfully');
+                }
+            });
         }
 
         // Expose functions globally for potential external use
@@ -472,7 +542,7 @@
      * Can integrate with WhatsApp Business API
      */
     // function sendWhatsAppOrder(productList) {
-    //     const phoneNumber = '919876543210'; // Replace with actual number
+    //     const phoneNumber = '919011463179'; // Replace with actual number
     //     const message = encodeURIComponent(`Order:\n${productList.join('\n')}`);
     //     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     // }
