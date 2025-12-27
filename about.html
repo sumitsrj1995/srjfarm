@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Learn about our farm story, values, and ethical farming practices. Visit us to see how we care for our animals.">
+    <meta name="keywords" content="farm story, organic farming, ethical dairy, farm practices">
+    
+    <!-- WebView Compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#7FB069">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <title>About Our Farm - Farm Fresh Organic Dairy</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header (reusable across pages) -->
+    <header class="header" role="banner">
+        <div class="container header__container">
+            <div class="header__logo" aria-label="Farm Fresh Logo">
+                🌾 Jagdale Farm
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                <ul class="header__nav" style="list-style: none; display: flex; gap: 1.5rem;">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="about.html" class="header__nav-link header__nav-link--active" aria-current="page">About</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="products.html" class="header__nav-link">Products</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link">Contact</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <button class="header__lang-toggle" id="langToggle" aria-label="Change language">
+                            <span>EN</span> / <span>मराठी</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+                <span class="header__menu-toggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__panel">
+            <div class="mobile-menu__header">
+                <div class="mobile-menu__logo">🌾 Farm Fresh</div>
+                <button class="mobile-menu__close" aria-label="Close menu" id="menuClose">✕</button>
+            </div>
+            <nav class="mobile-menu__nav" role="navigation" aria-label="Mobile navigation">
+                <ul class="mobile-menu__nav">
+                    <li class="mobile-menu__nav-item">
+                        <a href="index.html" class="mobile-menu__nav-link">Home</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="about.html" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">About</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="products.html" class="mobile-menu__nav-link">Products</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="contact.html" class="mobile-menu__nav-link">Contact</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
+                    <span>EN</span> / <span>मराठी</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FARM STORY SECTION
+         ============================================
+         Purpose: Build emotional connection, trust
+         Future: Can include video, photo gallery
+    -->
+    <section class="hero section" role="main">
+        <div class="container">
+            <h1 class="hero__title">Our Farm Story</h1>
+            <p class="hero__tagline">No Pesticides, No Chemicals for over two decades</p>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p class="hero__intro">
+                    We are a family-owned farm dedicated to providing you with the freshest, 
+                    most natural milk and ghee. Our cows are raised with care, fed organic feed, 
+                    and treated with respect. Every product you receive is a testament to our 
+                    commitment to quality and ethical farming for over two decades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VALUES & ETHICS
+         ============================================
+         Purpose: Show what makes the farm special
+         Future: Can be expanded with certifications
+    -->
+    <section class="section" aria-labelledby="values">
+        <div class="container">
+            <h2 id="values" class="text-center mb-lg">Our Values & Ethics</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🐄 Animal Welfare First</h3>
+                    <p class="feature-card__text">
+                        Our cows are not just livestock—they're part of our family. 
+                        We provide spacious barns, clean water, nutritious organic feed, 
+                        and regular veterinary care. Happy cows produce better milk.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🌱 Organic & Natural</h3>
+                    <p class="feature-card__text">
+                        We use no synthetic pesticides, fertilizers, or growth hormones. 
+                        Our farming practices are certified organic and follow traditional 
+                        methods that have been proven for generations.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">👥 Community Focus</h3>
+                    <p class="feature-card__text">
+                        We believe in supporting our local community. We source feed 
+                        locally when possible, employ local workers, and keep our 
+                        prices fair and accessible to families.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🌍 Environmental Responsibility</h3>
+                    <p class="feature-card__text">
+                        We practice sustainable farming that protects soil health, 
+                        conserves water, and reduces our carbon footprint. Our farm 
+                        is a model of environmental stewardship.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🔍 Transparency</h3>
+                    <p class="feature-card__text">
+                        We have nothing to hide. Visit our farm anytime, ask questions, 
+                        and see our practices firsthand. We're proud of what we do and 
+                        happy to show you.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">💚 Quality Over Quantity</h3>
+                    <p class="feature-card__text">
+                        We never compromise on quality. Every product that leaves our 
+                        farm meets our high standards. We'd rather produce less than 
+                        sacrifice quality for quantity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FARMING PRACTICES
+         ============================================
+         Purpose: Educate customers, build trust
+         Future: Can include photos, videos
+    -->
+    <section class="section" aria-labelledby="practices" style="background-color: var(--color-white);">
+        <div class="container">
+            <h2 id="practices" class="text-center mb-lg">Our Farming & Animal Care Practices</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">Daily Care Routine</h3>
+                    <p class="feature-card__text">
+                        Every morning, our cows are milked in a clean, modern milking parlor. 
+                        The milk is immediately cooled and stored at optimal temperature. 
+                        Our animals have access to fresh pasture during the day and comfortable 
+                        shelter at night.
+                    </p>
+                </div>
+
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">Nutrition & Feed</h3>
+                    <p class="feature-card__text">
+                        Our cows are fed a balanced diet of organic grass, hay, and grains. 
+                        We work with local organic farmers to source the best feed. No 
+                        antibiotics or growth hormones are ever used.
+                    </p>
+                </div>
+
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">Health & Veterinary Care</h3>
+                    <p class="feature-card__text">
+                        Regular health checkups, vaccinations, and preventive care ensure 
+                        our animals stay healthy. We work closely with experienced veterinarians 
+                        who share our commitment to ethical animal care.
+                    </p>
+                </div>
+
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">Milk Processing</h3>
+                    <p class="feature-card__text">
+                        Our milk is processed in a clean, hygienic facility on our farm. 
+                        We use traditional methods for ghee making, ensuring the authentic 
+                        taste and nutritional benefits are preserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PHOTOS PLACEHOLDER
+         ============================================
+         Future: Replace with actual farm photos
+         Scalability: Can be converted to image gallery component
+    -->
+    <section class="section" aria-labelledby="farm-photos">
+        <div class="container">
+            <h2 id="farm-photos" class="text-center mb-lg">Farm Photos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card__image" style="height: 250px;" aria-label="Farm Photo Placeholder">
+                        📸 Farm View
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Our Farm</h3>
+                        <p class="product-card__description">
+                            Aerial view of our organic farm with green pastures and modern facilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="height: 250px;" aria-label="Cows Photo Placeholder">
+                        🐄 Happy Cows
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Our Cows</h3>
+                        <p class="product-card__description">
+                            Our cows grazing freely on organic pastures.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="height: 250px;" aria-label="Milking Photo Placeholder">
+                        🥛 Milking Facility
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Milking Facility</h3>
+                        <p class="product-card__description">
+                            Clean, modern milking parlor where we ensure the highest hygiene standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-lg" style="color: var(--color-text-light);">
+                <em>Note: Replace these placeholders with actual farm photos</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TRANSPARENCY SECTION
+         ============================================
+         Purpose: Build ultimate trust
+         Future: Can include certifications, test results
+    -->
+    <section class="section" style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-bg) 100%);">
+        <div class="container">
+            <h2 class="text-center mb-lg">Transparency & Openness</h2>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <p class="hero__intro">
+                    We believe transparency builds trust. That's why we invite you to visit 
+                    our farm anytime. See our animals, watch our processes, and ask any 
+                    questions you have.
+                </p>
+                <p class="hero__intro">
+                    We're proud of our practices and happy to show you exactly how we 
+                    produce your food. No secrets, no hidden processes—just honest, 
+                    ethical farming.
+                </p>
+                <div class="mt-lg">
+                    <a href="contact.html" class="btn btn--primary btn--large">
+                        Schedule a Farm Visit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">
+                &copy; 2025 Farm Fresh. All rights reserved.
+            </p>
+            <p class="footer__text">
+                <a href="contact.html" class="footer__link">Contact Us</a> | 
+                <a href="index.html" class="footer__link">Home</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

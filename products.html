@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Browse our organic dairy products: fresh milk, pure ghee, and more. Prices, availability, and ordering information.">
+    <meta name="keywords" content="organic milk, ghee, dairy products, farm products, prices">
+    
+    <!-- WebView Compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#7FB069">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <title>Our Products - Farm Fresh Organic Dairy</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container header__container">
+            <div class="header__logo" aria-label="Farm Fresh Logo">
+                🌾 Jagdale Farm
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                <ul class="header__nav" style="list-style: none; display: flex; gap: 1.5rem;">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="about.html" class="header__nav-link">About</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="products.html" class="header__nav-link header__nav-link--active" aria-current="page">Products</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link">Contact</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <button class="header__lang-toggle" id="langToggle" aria-label="Change language">
+                            <span>EN</span> / <span>मराठी</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+                <span class="header__menu-toggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__panel">
+            <div class="mobile-menu__header">
+                <div class="mobile-menu__logo">🌾 Farm Fresh</div>
+                <button class="mobile-menu__close" aria-label="Close menu" id="menuClose">✕</button>
+            </div>
+            <nav class="mobile-menu__nav" role="navigation" aria-label="Mobile navigation">
+                <ul class="mobile-menu__nav">
+                    <li class="mobile-menu__nav-item">
+                        <a href="index.html" class="mobile-menu__nav-link">Home</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="about.html" class="mobile-menu__nav-link">About</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="products.html" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">Products</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="contact.html" class="mobile-menu__nav-link">Contact</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
+                    <span>EN</span> / <span>मराठी</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================
+         PRODUCTS PAGE HERO
+         ============================================
+    -->
+    <section class="hero section" role="main">
+        <div class="container">
+            <h1 class="hero__title">Our Products</h1>
+            <p class="hero__tagline">Fresh, Organic, and Delivered to Your Doorstep</p>
+            <p class="hero__intro">
+                All our products are made with care, using traditional methods and 
+                the highest quality ingredients. Order via WhatsApp for quick delivery.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCTS GRID
+         ============================================
+         Scalability Notes:
+         - Product data structure is ready for JSON/API
+         - Cards can be converted to React components
+         - Future: Add filtering, sorting, search
+         - Future: Add "Add to Cart" functionality
+         - Future: Dynamic pricing from backend
+    -->
+    <section class="section" aria-labelledby="all-products">
+        <div class="container">
+            <h2 id="all-products" class="text-center mb-lg">All Products</h2>
+            
+            <div class="products-grid">
+                <!-- Product 1: Fresh Milk -->
+                <div class="product-card" data-product-id="milk-1l" data-product-name="Fresh Organic Milk - 1L">
+                    <div class="product-card__image" aria-label="Fresh Organic Milk">
+                        🥛
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Fresh Organic Milk - 1 Liter</h3>
+                        <p class="product-card__description">
+                            Daily fresh milk from our grass-fed cows. Rich in calcium, 
+                            protein, and natural vitamins. Perfect for your morning coffee, 
+                            tea, or cereal.
+                        </p>
+                        <div class="product-card__price">₹60</div>
+                        <div class="product-card__quantity">Per Liter</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                        <!-- Future: Add to Cart button will go here -->
+                    </div>
+                </div>
+
+                <!-- Product 2: Fresh Milk 2L -->
+                <div class="product-card" data-product-id="milk-2l" data-product-name="Fresh Organic Milk - 2L">
+                    <div class="product-card__image" aria-label="Fresh Organic Milk 2L">
+                        🥛
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Fresh Organic Milk - 2 Liters</h3>
+                        <p class="product-card__description">
+                            Same great quality in a larger pack. Perfect for families. 
+                            Fresh daily delivery available.
+                        </p>
+                        <div class="product-card__price">₹115</div>
+                        <div class="product-card__quantity">Per 2 Liters (Save ₹5)</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Product 3: Fresh Milk 5L -->
+                <div class="product-card" data-product-id="milk-5l" data-product-name="Fresh Organic Milk - 5L">
+                    <div class="product-card__image" aria-label="Fresh Organic Milk 5L">
+                        🥛
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Fresh Organic Milk - 5 Liters</h3>
+                        <p class="product-card__description">
+                            Best value for large families or regular customers. 
+                            Bulk pricing available for weekly orders.
+                        </p>
+                        <div class="product-card__price">₹280</div>
+                        <div class="product-card__quantity">Per 5 Liters (Save ₹20)</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Product 4: Pure Desi Ghee 500g -->
+                <div class="product-card" data-product-id="ghee-500g" data-product-name="Pure Desi Ghee - 500g">
+                    <div class="product-card__image" aria-label="Pure Desi Ghee">
+                        🧈
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Pure Desi Ghee - 500g</h3>
+                        <p class="product-card__description">
+                            Traditional method ghee made from our organic milk. 
+                            Rich, aromatic, and perfect for cooking, drizzling, or 
+                            adding to your roti.
+                        </p>
+                        <div class="product-card__price">₹280</div>
+                        <div class="product-card__quantity">Per 500g</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Product 5: Pure Desi Ghee 1Kg -->
+                <div class="product-card" data-product-id="ghee-1kg" data-product-name="Pure Desi Ghee - 1Kg">
+                    <div class="product-card__image" aria-label="Pure Desi Ghee 1Kg">
+                        🧈
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Pure Desi Ghee - 1 Kilogram</h3>
+                        <p class="product-card__description">
+                            Our best-selling ghee in a larger pack. Made with the 
+                            same traditional methods and quality standards.
+                        </p>
+                        <div class="product-card__price">₹550</div>
+                        <div class="product-card__quantity">Per 1Kg (Save ₹10)</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Product 6: Curd (Future Product) -->
+                <div class="product-card" data-product-id="curd-500g" data-product-name="Fresh Organic Curd - 500g">
+                    <div class="product-card__image" aria-label="Fresh Organic Curd">
+                        🍶
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Fresh Organic Curd - 500g</h3>
+                        <p class="product-card__description">
+                            Creamy, probiotic-rich curd made from our fresh milk. 
+                            Perfect for your daily diet or as a side dish.
+                        </p>
+                        <div class="product-card__price">₹45</div>
+                        <div class="product-card__quantity">Per 500g</div>
+                        <span class="product-card__availability product-card__availability--limited">
+                            ⚠ Limited Stock
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ORDERING INFORMATION
+         ============================================
+         Future: Can include subscription options, delivery schedule
+    -->
+    <section class="section" style="background-color: var(--color-white);" aria-labelledby="ordering-info">
+        <div class="container">
+            <h2 id="ordering-info" class="text-center mb-lg">How to Order</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-card__title">1️⃣ WhatsApp Us</h3>
+                    <p class="feature-card__text">
+                        Send us a message on WhatsApp with your product list and delivery address.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">2️⃣ Confirm Order</h3>
+                    <p class="feature-card__text">
+                        We'll confirm availability and delivery time. Usually same-day or next-day delivery.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">3️⃣ Receive Fresh Products</h3>
+                    <p class="feature-card__text">
+                        Get your fresh, organic products delivered to your doorstep. Cash on delivery available.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-lg">
+                <a href="contact.html" class="btn btn--whatsapp btn--large">
+                    📱 Order via WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCT BENEFITS
+         ============================================
+         Purpose: Educate customers about product benefits
+    -->
+    <section class="section" aria-labelledby="benefits">
+        <div class="container">
+            <h2 id="benefits" class="text-center mb-lg">Why Choose Our Products?</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">🌱 100% Organic</h3>
+                    <p class="feature-card__text">
+                        No pesticides, no hormones, no artificial additives. Just pure, 
+                        natural products from our organic farm.
+                    </p>
+                </div>
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">📅 Daily Fresh</h3>
+                    <p class="feature-card__text">
+                        Our milk is collected fresh every morning. No long storage times, 
+                        no preservatives—just fresh from farm to you.
+                    </p>
+                </div>
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">🏠 Direct from Farm</h3>
+                    <p class="feature-card__text">
+                        We deliver directly from our farm. No middlemen, no warehouses— 
+                        ensuring maximum freshness and quality.
+                    </p>
+                </div>
+                <div class="feature-card mb-md">
+                    <h3 class="feature-card__title">💰 Fair Pricing</h3>
+                    <p class="feature-card__text">
+                        We keep our prices fair and accessible. Quality organic products 
+                        shouldn't break the bank.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">
+                &copy; 2025 Farm Fresh. All rights reserved.
+            </p>
+            <p class="footer__text">
+                <a href="contact.html" class="footer__link">Contact Us</a> | 
+                <a href="index.html" class="footer__link">Home</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

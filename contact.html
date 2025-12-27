@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Contact Farm Fresh to order organic milk and ghee. WhatsApp, phone, or visit our farm. We're here to help!">
+    <meta name="keywords" content="contact farm, order milk, WhatsApp order, farm location">
+    
+    <!-- WebView Compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#7FB069">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <title>Contact Us - Jagdale Farm Organic Dairy</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container header__container">
+            <div class="header__logo" aria-label="Farm Fresh Logo">
+                🌾 Jagdale Farm
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                <ul class="header__nav" style="list-style: none; display: flex; gap: 1.5rem;">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="about.html" class="header__nav-link">About</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="products.html" class="header__nav-link">Products</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--active" aria-current="page">Contact</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <button class="header__lang-toggle" id="langToggle" aria-label="Change language">
+                            <span>EN</span> / <span>मराठी</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+                <span class="header__menu-toggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__panel">
+            <div class="mobile-menu__header">
+                <div class="mobile-menu__logo">🌾 Farm Fresh</div>
+                <button class="mobile-menu__close" aria-label="Close menu" id="menuClose">✕</button>
+            </div>
+            <nav class="mobile-menu__nav" role="navigation" aria-label="Mobile navigation">
+                <ul class="mobile-menu__nav">
+                    <li class="mobile-menu__nav-item">
+                        <a href="index.html" class="mobile-menu__nav-link">Home</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="about.html" class="mobile-menu__nav-link">About</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="products.html" class="mobile-menu__nav-link">Products</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="contact.html" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">Contact</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
+                    <span>EN</span> / <span>मराठी</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================
+         CONTACT PAGE HERO
+         ============================================
+    -->
+    <section class="hero section" role="main">
+        <div class="container">
+            <h1 class="hero__title">Get in Touch</h1>
+            <p class="hero__tagline">We're Here to Help You</p>
+            <p class="hero__intro">
+                Have questions? Want to place an order? Or just want to visit our farm? 
+                We'd love to hear from you!
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHATSAPP ORDER BUTTON (PROMINENT)
+         ============================================
+         Future: Can integrate WhatsApp Business API
+         Scalability: Button can trigger automated order flow
+    -->
+    <section class="section" aria-labelledby="whatsapp-order">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h2 id="whatsapp-order" class="mb-md">Order via WhatsApp</h2>
+                <p class="mb-lg" style="font-size: 1.125rem; color: var(--color-text-light);">
+                    The fastest way to place your order. Send us a message with your 
+                    product list and we'll confirm delivery details.
+                </p>
+                <a 
+                    href="https://wa.me/919011463179?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order" 
+                    class="btn btn--whatsapp btn--large"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Order via WhatsApp"
+                >
+                    📱 Order via WhatsApp
+                </a>
+                <p class="mt-md" style="font-size: 0.875rem; color: var(--color-text-light);">
+                    <em>Note: Replace the phone number (919876543210) with your actual WhatsApp number</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT INFORMATION
+         ============================================
+         Future: Can be dynamic from CMS
+    -->
+    <section class="section" style="background-color: var(--color-white);" aria-labelledby="contact-info">
+        <div class="container">
+            <h2 id="contact-info" class="text-center mb-lg">Contact Information</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-card__title">📞 Phone</h3>
+                    <p class="feature-card__text">
+                        <a href="tel:+919011463179" style="color: var(--color-primary); font-weight: 600;">
+                            +91 90114 63179
+                        </a>
+                    </p>
+                    <p class="feature-card__text" style="font-size: 0.875rem; margin-top: var(--spacing-xs);">
+                        Available: 7 AM - 8 PM daily
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">📧 Email</h3>
+                    <p class="feature-card__text">
+                        <a href="mailto:info@farmfresh.com" style="color: var(--color-primary); font-weight: 600;">
+                            sumitsrj1995@gmail.com
+                        </a>
+                    </p>
+                    <p class="feature-card__text" style="font-size: 0.875rem; margin-top: var(--spacing-xs);">
+                        We respond within 24 hours
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">📍 Address</h3>
+                    <p class="feature-card__text" style="font-weight: 600;">
+                        Jagdale Farm<br>
+                        Phaltan - Sastewadi Road, Near Pansare wasti<br>
+                        Maharashtra, PIN Code - 415523<br>
+                        India
+                    </p>
+                    <p class="feature-card__text" style="font-size: 0.875rem; margin-top: var(--spacing-xs);">
+                        <em>Feel free to visit and experience organic Farm visit.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GOOGLE MAP EMBED PLACEHOLDER
+         ============================================
+         Future: Replace with actual Google Maps embed
+         Instructions: Get embed code from Google Maps
+    -->
+    <section class="section" aria-labelledby="location">
+        <div class="container">
+            <h2 id="location" class="text-center mb-lg">Find Us</h2>
+            <div class="map-container">
+                <p style="text-align: center; color: var(--color-text-light);">
+                    📍 Google Map will be embedded here<br>
+                    <em style="font-size: 0.875rem;">
+                        To add: Go to Google Maps → Find your location → Share → Embed a map → Copy code
+                    </em>
+                </p>
+            </div>
+            <!-- 
+            Future: Replace above div with actual Google Maps embed code:
+            <iframe 
+                src="YOUR_GOOGLE_MAPS_EMBED_URL" 
+                width="100%" 
+                height="300" 
+                style="border:0; border-radius: 8px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            -->
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT FORM
+         ============================================
+         Scalability Notes:
+         - Form structure ready for backend integration
+         - Can connect to Firebase, Formspree, or custom API
+         - Future: Add form validation, success messages
+         - Future: Can integrate with email service
+    -->
+    <section class="section" style="background-color: var(--color-white);" aria-labelledby="contact-form">
+        <div class="container">
+            <h2 id="contact-form" class="text-center mb-lg">Send Us a Message</h2>
+            <form class="contact-form" id="contactForm" aria-label="Contact form">
+                <div class="form-group">
+                    <label for="name" class="form-group__label">Your Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="form-group__input" 
+                        required
+                        aria-required="true"
+                        placeholder="Enter your name"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-group__label">Phone Number *</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        class="form-group__input" 
+                        required
+                        aria-required="true"
+                        placeholder="Enter your phone number"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-group__label">Email (Optional)</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-group__input" 
+                        placeholder="Enter your email"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-group__label">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        class="form-group__textarea" 
+                        required
+                        aria-required="true"
+                        placeholder="Tell us how we can help you..."
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn--primary" style="width: 100%;">
+                    Send Message
+                </button>
+                
+                <p style="text-align: center; margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-light);">
+                    <em>Note: Form submission requires backend setup. Currently for display only.</em>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VISIT OUR FARM
+         ============================================
+    -->
+    <section class="section" aria-labelledby="visit-farm">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 id="visit-farm" class="mb-md">Visit Our Farm</h2>
+                <p class="hero__intro">
+                    We welcome visitors! Come see our farm, meet our cows, and learn 
+                    about our practices. Please call or WhatsApp us to schedule a visit.
+                </p>
+                <div class="mt-lg">
+                    <a href="about.html" class="btn btn--primary">
+                        Learn More About Our Farm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">
+                &copy; 2025 Farm Fresh. All rights reserved.
+            </p>
+            <p class="footer__text">
+                <a href="index.html" class="footer__link">Home</a> | 
+                <a href="products.html" class="footer__link">Products</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

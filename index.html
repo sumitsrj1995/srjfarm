@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Fresh, organic milk and ghee from our local farm. Trusted quality, ethical farming practices.">
+    <meta name="keywords" content="organic milk, farm fresh ghee, local farm, dairy products">
+    
+    <!-- WebView Compatibility -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#7FB069">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <title>Jagdale Farm - Organic Milk & Ghee | Local Farm</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Future: Add favicon here -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+</head>
+<body>
+    <!-- ============================================
+         HEADER & NAVIGATION
+         ============================================
+         Scalability: Navigation can be converted to React component
+         Future: Add mobile menu toggle with JS
+    -->
+    <header class="header" role="banner">
+        <div class="container header__container">
+            <div class="header__logo" aria-label="Farm Fresh Logo">
+                🌾 Jagdale Farm
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                <ul class="header__nav" style="list-style: none; display: flex; gap: 1.5rem;">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link header__nav-link--active" aria-current="page">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="about.html" class="header__nav-link">About</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="products.html" class="header__nav-link">Products</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link">Contact</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <button class="header__lang-toggle" id="langToggle" aria-label="Change language">
+                            <span>EN</span> / <span>मराठी</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+                <span class="header__menu-toggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__panel">
+            <div class="mobile-menu__header">
+                <div class="mobile-menu__logo">🌾 Farm Fresh</div>
+                <button class="mobile-menu__close" aria-label="Close menu" id="menuClose">✕</button>
+            </div>
+            <nav class="mobile-menu__nav" role="navigation" aria-label="Mobile navigation">
+                <ul class="mobile-menu__nav">
+                    <li class="mobile-menu__nav-item">
+                        <a href="index.html" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">Home</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="about.html" class="mobile-menu__nav-link">About</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="products.html" class="mobile-menu__nav-link">Products</a>
+                    </li>
+                    <li class="mobile-menu__nav-item">
+                        <a href="contact.html" class="mobile-menu__nav-link">Contact</a>
+                    </li>
+                </ul>
+                <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
+                    <span>EN</span> / <span>मराठी</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================
+         Purpose: First impression, trust-building
+         Future: Can be made dynamic with CMS/API
+    -->
+    <section class="hero section" role="main">
+        <div class="container">
+            <h1 class="hero__title">Farm Fresh Organic Dairy</h1>
+            <p class="hero__tagline">Pure. Natural. Trusted.</p>
+            <p class="hero__intro">
+                We are a family-owned farm dedicated to providing you with the freshest, 
+                most natural milk and ghee. Our cows are raised with care, fed organic feed, 
+                and treated with respect. Every product you receive is a testament to our 
+                commitment to quality and ethical farming.
+            </p>
+            <a href="contact.html" class="btn btn--primary btn--large" aria-label="Order via WhatsApp">
+                📱 Order via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY OUR FARM IS DIFFERENT
+         ============================================
+         Purpose: Build trust, differentiate from competitors
+         Future: Can be managed via CMS
+    -->
+    <section class="section" aria-labelledby="why-different">
+        <div class="container">
+            <h2 id="why-different" class="text-center mb-lg">Why Our Farm is Different</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🐄 Ethical Animal Care</h3>
+                    <p class="feature-card__text">
+                        Our cows graze freely on organic pastures. We believe happy, 
+                        healthy animals produce the best quality milk.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🌱 100% Organic</h3>
+                    <p class="feature-card__text">
+                        No antibiotics, no hormones, no artificial additives. 
+                        Just pure, natural dairy products from our farm to your table.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🏠 Local & Fresh</h3>
+                    <p class="feature-card__text">
+                        We deliver directly from our farm to your doorstep. 
+                        No middlemen, no long storage times—just fresh products.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">💚 Transparent Practices</h3>
+                    <p class="feature-card__text">
+                        Visit our farm anytime. We're proud of our practices and 
+                        happy to show you how we care for our animals and produce.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">👨‍👩‍👧‍👦 Family Values</h3>
+                    <p class="feature-card__text">
+                        Three generations of farming experience. We treat our 
+                        customers like family and our farm like home.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-card__title">🌍 Sustainable Farming</h3>
+                    <p class="feature-card__text">
+                        We practice sustainable farming methods that protect the 
+                        environment for future generations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURED PRODUCTS
+         ============================================
+         Purpose: Showcase main products
+         Future: Pull from API/database
+         Scalability: Product cards are reusable components
+    -->
+    <section class="section" aria-labelledby="featured-products" style="background-color: var(--color-white);">
+        <div class="container">
+            <h2 id="featured-products" class="text-center mb-lg">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card__image" aria-label="Fresh Milk Product">
+                        🥛
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Fresh Organic Milk</h3>
+                        <p class="product-card__description">
+                            Daily fresh milk from our grass-fed cows. Rich in nutrients, 
+                            naturally creamy, and full of flavor.
+                        </p>
+                        <div class="product-card__price">₹60/Liter</div>
+                        <div class="product-card__quantity">Available in 1L, 2L, 5L packs</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" aria-label="Pure Ghee Product">
+                        🧈
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Pure Desi Ghee</h3>
+                        <p class="product-card__description">
+                            Traditional method ghee made from our organic milk. 
+                            Rich, aromatic, and perfect for your kitchen.
+                        </p>
+                        <div class="product-card__price">₹550/Kg</div>
+                        <div class="product-card__quantity">Available in 500g, 1Kg packs</div>
+                        <span class="product-card__availability product-card__availability--available">
+                            ✓ Available
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-lg">
+                <a href="products.html" class="btn btn--primary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS
+         ============================================
+         Purpose: Social proof, build trust
+         Future: Can be dynamic from reviews API
+         Note: Static for now, can be replaced with real reviews later
+    -->
+    <section class="testimonials section" aria-labelledby="testimonials">
+        <div class="container">
+            <h2 id="testimonials" class="text-center mb-lg">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">
+                        "The milk is so fresh and creamy! My family loves it. 
+                        We've been ordering for 6 months now."
+                    </p>
+                    <p class="testimonial-card__author">— Priya Sharma, Local Customer</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">
+                        "Best ghee I've ever tasted! You can really tell the difference 
+                        in quality. Highly recommend!"
+                    </p>
+                    <p class="testimonial-card__author">— Rajesh Kumar, Regular Buyer</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">
+                        "I visited the farm with my kids. They loved seeing the cows! 
+                        Such a transparent and caring operation."
+                    </p>
+                    <p class="testimonial-card__author">— Anjali Patel, Health-Conscious Parent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CALL TO ACTION
+         ============================================
+         Purpose: Convert visitors to customers
+         Future: Can track clicks for analytics
+    -->
+    <section class="section" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: var(--spacing-md);">Ready to Order?</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.125rem; margin-bottom: var(--spacing-lg);">
+                Get fresh, organic dairy products delivered to your doorstep.
+            </p>
+            <a href="contact.html" class="btn btn--whatsapp btn--large" aria-label="Order via WhatsApp">
+                📱 Order via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================
+         Future: Can include newsletter signup, social links
+    -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="footer__text">
+                &copy; 2025 Farm Fresh. All rights reserved.
+            </p>
+            <p class="footer__text">
+                <a href="contact.html" class="footer__link">Contact Us</a> | 
+                <a href="about.html" class="footer__link">About Our Farm</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for future enhancements -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
