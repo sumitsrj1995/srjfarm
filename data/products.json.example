@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": "milk-1l",
+      "name": "Fresh Organic Milk - 1 Liter",
+      "description": "Daily fresh milk from our grass-fed cows. Rich in calcium, protein, and natural vitamins.",
+      "price": 60,
+      "currency": "INR",
+      "quantity": "1 Liter",
+      "image": "images/milk-1l.jpg",
+      "availability": "available",
+      "category": "milk"
+    },
+    {
+      "id": "milk-2l",
+      "name": "Fresh Organic Milk - 2 Liters",
+      "description": "Same great quality in a larger pack. Perfect for families.",
+      "price": 115,
+      "currency": "INR",
+      "quantity": "2 Liters",
+      "image": "images/milk-2l.jpg",
+      "availability": "available",
+      "category": "milk"
+    },
+    {
+      "id": "ghee-500g",
+      "name": "Pure Desi Ghee - 500g",
+      "description": "Traditional method ghee made from our organic milk. Rich, aromatic, and perfect for cooking.",
+      "price": 280,
+      "currency": "INR",
+      "quantity": "500g",
+      "image": "images/ghee-500g.jpg",
+      "availability": "available",
+      "category": "ghee"
+    },
+    {
+      "id": "ghee-1kg",
+      "name": "Pure Desi Ghee - 1 Kilogram",
+      "description": "Our best-selling ghee in a larger pack. Made with the same traditional methods.",
+      "price": 550,
+      "currency": "INR",
+      "quantity": "1Kg",
+      "image": "images/ghee-1kg.jpg",
+      "availability": "available",
+      "category": "ghee"
+    }
+  ]
+}
+
