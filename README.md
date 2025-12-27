@@ -247,7 +247,7 @@ farm-website/
 
 **In all HTML files**, replace:
 - Farm name: Search for "Farm Fresh" and replace
-- Phone number: Search for "+91 98765 43210" and replace
+- Phone number: Search for "+91 90114 63179" and replace
 - Email: Search for "info@farmfresh.com" and replace
 - Address: Update in `contact.html`
 
@@ -255,8 +255,8 @@ farm-website/
 
 **In `contact.html` and `index.html`**:
 ```html
-<!-- Replace 919876543210 with your WhatsApp number -->
-href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order"
+<!-- Replace 919011463179 with your WhatsApp number -->
+href="https://wa.me/919011463179?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order"
 ```
 
 ### 3. Add Real Images
