@@ -133,7 +133,7 @@
     function initNavigation() {
         // Set active navigation link based on current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.header__nav-link, .mobile-menu__nav-link');
+        const navLinks = document.querySelectorAll('.header__nav-link, #main-navigation-menu a');
         
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
@@ -143,15 +143,20 @@
                 // Internal navigation - ensure smooth transition
                 if (linkHref === currentPage || 
                     (currentPage === '' && linkHref === 'index.html')) {
-                    link.classList.add('header__nav-link--active', 'mobile-menu__nav-link--active');
+                    // Add active class only to desktop nav links
+                    if (link.classList.contains('header__nav-link')) {
+                        link.classList.add('header__nav-link--active');
+                    }
                     link.setAttribute('aria-current', 'page');
                 }
                 
                 // WebView: Ensure internal links work smoothly
                 link.addEventListener('click', function(e) {
-                    // Close mobile menu when navigating
-                    if (link.classList.contains('mobile-menu__nav-link')) {
-                        closeMobileMenu();
+                    // Close mobile menu when navigating (if it's in mobile menu)
+                    const mobileMenu = document.getElementById('main-navigation-menu');
+                    if (mobileMenu && mobileMenu.contains(link)) {
+                        mobileMenu.classList.remove('is-visible');
+                        document.body.classList.remove('menu-open');
                     }
                     // Let default behavior handle navigation
                     // WebView will handle page transitions
@@ -556,6 +561,7 @@
             elements.forEach(el => {
                 if (el) {
                     el.textContent = text;
+                    console.log('Updated element:', selector, 'to:', text);
                 }
             });
         }
@@ -572,16 +578,40 @@
 
             console.log('Applying language:', lang);
 
-            // Update navigation
-            updateText('.header__nav-link[href="index.html"]', t.nav.home);
-            updateText('.header__nav-link[href="about.html"]', t.nav.about);
-            updateText('.header__nav-link[href="products.html"]', t.nav.products);
-            updateText('.header__nav-link[href="contact.html"]', t.nav.contact);
+            // Update desktop navigation - iterate through links directly
+            const desktopNavLinks = document.querySelectorAll('.header__nav-link');
+            desktopNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === 'index.html') {
+                    link.textContent = t.nav.home;
+                } else if (href === 'about.html') {
+                    link.textContent = t.nav.about;
+                } else if (href === 'products.html') {
+                    link.textContent = t.nav.products;
+                } else if (href === 'contact.html') {
+                    link.textContent = t.nav.contact;
+                }
+            });
             
-            updateText('.mobile-menu__nav-link[href="index.html"]', t.nav.home);
-            updateText('.mobile-menu__nav-link[href="about.html"]', t.nav.about);
-            updateText('.mobile-menu__nav-link[href="products.html"]', t.nav.products);
-            updateText('.mobile-menu__nav-link[href="contact.html"]', t.nav.contact);
+            // Update mobile navigation menu (new structure)
+            const mobileNavLinks = document.querySelectorAll('#main-navigation-menu a');
+            mobileNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === 'index.html') {
+                    link.textContent = t.nav.home;
+                } else if (href === 'about.html') {
+                    link.textContent = t.nav.about;
+                } else if (href === 'products.html') {
+                    link.textContent = t.nav.products;
+                } else if (href === 'contact.html') {
+                    link.textContent = t.nav.contact;
+                }
+            });
+            
+            console.log('Navigation updated:', {
+                desktop: desktopNavLinks.length,
+                mobile: mobileNavLinks.length
+            });
 
             // Update page-specific content based on current page
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
