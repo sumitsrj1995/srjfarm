@@ -35,6 +35,7 @@
  * ============================================
  * Runs immediately - NO DOMContentLoaded, NO delays
  * Direct onclick binding for Android WebView compatibility
+ * Since scripts are loaded at end of body, DOM is ready
  * ============================================
  */
 (function () {
@@ -46,6 +47,7 @@
     return;
   }
 
+  // CRITICAL: Direct onclick for WebView compatibility
   hamburgerIcon.onclick = function () {
     mainMenu.classList.toggle("is-visible");
   };

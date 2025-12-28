@@ -328,8 +328,8 @@ a:hover {
 /* Main Navigation Menu - Hidden by default */
 #main-navigation-menu {
   display: none;
-  position: absolute; /* CRITICAL: Must overlay content and be clickable */
-  top: 100%; /* Position directly below header */
+  position: fixed; /* CRITICAL: Fixed to overlay content and be clickable */
+  top: 70px; /* Position directly below fixed header (header height) */
   left: 0;
   width: 100%;
   background: white; /* Ensure solid background */
