@@ -327,7 +327,7 @@ a:hover {
 
 /* Main Navigation Menu - Hidden by default */
 #main-navigation-menu {
-  display: none !important;
+  display: none;
   position: fixed;
   top: 70px;
   left: 0;
@@ -343,7 +343,7 @@ a:hover {
 
 /* Menu visible when is-visible class is added */
 #main-navigation-menu.is-visible {
-  display: block;
+  display: block !important;
 }
 
 /* Prevent body scroll when menu is open */
@@ -749,20 +749,11 @@ body.menu-open {
 @media (max-width: 768px) {
   #hamburger-menu-icon {
     display: flex;
-    z-index: 9999;
-    position: relative;
   }
   
   .header__nav {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
+    display: none;
+    pointer-events: none;
   }
 }
 

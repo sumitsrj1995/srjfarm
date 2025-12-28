@@ -31,34 +31,28 @@
 
 /**
  * ============================================
- * MAIN APPLICATION INITIALIZATION
- * ============================================
- * Hamburger menu runs immediately after script loads
- * All other functionality initializes when DOM is ready
+ * HAMBURGER MENU - SIMPLE DIRECT BINDING
  * ============================================
  */
+var hamburgerIcon = document.getElementById('hamburger-menu-icon');
+var mainMenu = document.getElementById('main-navigation-menu');
 
-// HAMBURGER MENU: Initialize immediately (no delay needed)
-(function() {
-  var hamburgerIcon = document.getElementById('hamburger-menu-icon');
-  var mainMenu = document.getElementById('main-navigation-menu');
+if (hamburgerIcon && mainMenu) {
+  hamburgerIcon.onclick = function() {
+    if (mainMenu.classList.contains('is-visible')) {
+      mainMenu.classList.remove('is-visible');
+    } else {
+      mainMenu.classList.add('is-visible');
+    }
+  };
 
-  if (hamburgerIcon && mainMenu) {
-    hamburgerIcon.addEventListener('click', function(e) {
-      e.stopPropagation();
-      mainMenu.classList.toggle('is-visible');
-    }, false);
-
-    // Close menu when clicking a navigation link
-    var navLinks = mainMenu.querySelectorAll('a');
-    navLinks.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mainMenu.classList.remove('is-visible');
-      }, false);
-    });
+  var navLinks = mainMenu.querySelectorAll('a');
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].onclick = function() {
+      mainMenu.classList.remove('is-visible');
+    };
   }
-})();
+}
 
 (function() {
     'use strict';
