@@ -162,86 +162,66 @@
 
     /**
      * ============================================
-     * MOBILE MENU FUNCTIONALITY
+     * HAMBURGER MENU FUNCTIONALITY (WebView-Safe)
      * ============================================
-     * Handles hamburger menu toggle for mobile devices
-     * WebView-compatible with touch-friendly interactions
+     * Simple toggle implementation using class toggling
+     * Works reliably in Android WebView, mobile browsers, and desktop
      */
     function initMobileMenu() {
-        const menuToggle = document.getElementById('menuToggle');
-        const menuClose = document.getElementById('menuClose');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link');
+        const hamburgerIcon = document.getElementById('hamburger-menu-icon');
+        const navigationMenu = document.getElementById('main-navigation-menu');
 
-        if (!menuToggle || !mobileMenu) return;
-
-        // Open menu
-        menuToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openMobileMenu();
-        });
-
-        // Close menu
-        if (menuClose) {
-            menuClose.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                closeMobileMenu();
-            });
+        if (!hamburgerIcon || !navigationMenu) {
+            return;
         }
 
-        // Close menu when clicking overlay
-        mobileMenu.addEventListener('click', function(e) {
-            if (e.target === mobileMenu) {
-                closeMobileMenu();
+        // Toggle menu visibility
+        function toggleMenu() {
+            const isVisible = navigationMenu.classList.contains('is-visible');
+            
+            if (isVisible) {
+                navigationMenu.classList.remove('is-visible');
+                hamburgerIcon.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            } else {
+                navigationMenu.classList.add('is-visible');
+                hamburgerIcon.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('menu-open');
             }
+        }
+
+        // Click handler
+        hamburgerIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Close menu when clicking a link
-        mobileMenuLinks.forEach(link => {
+        // Touch handler for WebView compatibility
+        hamburgerIcon.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when clicking a navigation link
+        const navLinks = navigationMenu.querySelectorAll('a');
+        navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
-                setTimeout(closeMobileMenu, 100);
+                navigationMenu.classList.remove('is-visible');
+                hamburgerIcon.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
             });
         });
 
         // Close menu on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
-                closeMobileMenu();
+            if (e.key === 'Escape' && navigationMenu.classList.contains('is-visible')) {
+                navigationMenu.classList.remove('is-visible');
+                hamburgerIcon.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
             }
         });
-
-        // Prevent body scroll when menu is open
-        function preventBodyScroll() {
-            document.body.classList.add('body--menu-open');
-        }
-
-        function allowBodyScroll() {
-            document.body.classList.remove('body--menu-open');
-        }
-
-        // Open menu function
-        function openMobileMenu() {
-            mobileMenu.classList.add('mobile-menu--open');
-            menuToggle.classList.add('header__menu-toggle--open');
-            menuToggle.setAttribute('aria-expanded', 'true');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            preventBodyScroll();
-        }
-
-        // Close menu function
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('mobile-menu--open');
-            menuToggle.classList.remove('header__menu-toggle--open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            allowBodyScroll();
-        }
-
-        // Expose functions globally for potential external use
-        window.openMobileMenu = openMobileMenu;
-        window.closeMobileMenu = closeMobileMenu;
     }
 
     /**

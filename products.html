@@ -48,45 +48,27 @@
                     </li>
                 </ul>
             </nav>
-            <!-- Mobile Menu Toggle Button -->
-            <button class="header__menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
-                <span class="header__menu-toggle-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </button>
+            <!-- Hamburger Menu Icon -->
+            <div id="hamburger-menu-icon" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <div class="mobile-menu__panel">
-            <div class="mobile-menu__header">
-                <div class="mobile-menu__logo">🌾 Farm Fresh</div>
-                <button class="mobile-menu__close" aria-label="Close menu" id="menuClose">✕</button>
-            </div>
-            <nav class="mobile-menu__nav" role="navigation" aria-label="Mobile navigation">
-                <ul class="mobile-menu__nav">
-                    <li class="mobile-menu__nav-item">
-                        <a href="index.html" class="mobile-menu__nav-link">Home</a>
-                    </li>
-                    <li class="mobile-menu__nav-item">
-                        <a href="about.html" class="mobile-menu__nav-link">About</a>
-                    </li>
-                    <li class="mobile-menu__nav-item">
-                        <a href="products.html" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">Products</a>
-                    </li>
-                    <li class="mobile-menu__nav-item">
-                        <a href="contact.html" class="mobile-menu__nav-link">Contact</a>
-                    </li>
-                </ul>
-                <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
-                    <span>EN</span> / <span>मराठी</span>
-                </button>
-            </nav>
-        </div>
-    </div>
+    <!-- Main Navigation Menu -->
+    <nav id="main-navigation-menu" role="navigation" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
+            <span>EN</span> / <span>मराठी</span>
+        </button>
+    </nav>
 
     <!-- ============================================
          PRODUCTS PAGE HERO
