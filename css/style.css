@@ -289,22 +289,22 @@ a:hover {
 
 /* Hamburger Menu Icon */
 #hamburger-menu-icon {
-  display: none; /* Hidden on desktop */
+  display: none;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 30px;
   height: 30px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 5px;
-  z-index: 9999; /* CRITICAL: Must sit above all other header layers */
   position: relative;
-  -webkit-tap-highlight-color: rgba(127, 176, 105, 0.2);
-  touch-action: manipulation;
+  z-index: 9999;
   min-width: 44px;
   min-height: 44px;
-  align-items: center;
+  -webkit-tap-highlight-color: rgba(127, 176, 105, 0.2);
+  touch-action: manipulation;
 }
 
 #hamburger-menu-icon span {
@@ -327,13 +327,14 @@ a:hover {
 
 /* Main Navigation Menu - Hidden by default */
 #main-navigation-menu {
-  display: none;
-  position: fixed; /* CRITICAL: Fixed to overlay content and be clickable */
-  top: 70px; /* Position directly below fixed header (header height) */
+  display: none !important;
+  position: fixed;
+  top: 70px;
   left: 0;
+  right: 0;
   width: 100%;
-  background: white; /* Ensure solid background */
-  z-index: 9998; /* Below hamburger icon but above content */
+  background: white;
+  z-index: 9998;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   max-height: calc(100vh - 70px);
@@ -748,11 +749,20 @@ body.menu-open {
 @media (max-width: 768px) {
   #hamburger-menu-icon {
     display: flex;
+    z-index: 9999;
+    position: relative;
   }
   
   .header__nav {
-    display: none !important; /* Hide desktop navigation on mobile */
-    pointer-events: none !important; /* CRITICAL: Prevent hidden nav from intercepting touches in WebView */
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 }
 

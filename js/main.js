@@ -31,26 +31,33 @@
 
 /**
  * ============================================
- * WEBVIEW-SAFE HAMBURGER MENU (CRITICAL)
+ * MAIN APPLICATION INITIALIZATION
  * ============================================
- * Runs immediately - NO DOMContentLoaded, NO delays
- * Direct onclick binding for Android WebView compatibility
- * Since scripts are loaded at end of body, DOM is ready
+ * Hamburger menu runs immediately after script loads
+ * All other functionality initializes when DOM is ready
  * ============================================
  */
-(function () {
-  var hamburgerIcon = document.getElementById("hamburger-menu-icon");
-  var mainMenu = document.getElementById("main-navigation-menu");
 
-  if (!hamburgerIcon || !mainMenu) {
-    console.error("Hamburger menu elements not found");
-    return;
+// HAMBURGER MENU: Initialize immediately (no delay needed)
+(function() {
+  var hamburgerIcon = document.getElementById('hamburger-menu-icon');
+  var mainMenu = document.getElementById('main-navigation-menu');
+
+  if (hamburgerIcon && mainMenu) {
+    hamburgerIcon.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mainMenu.classList.toggle('is-visible');
+    }, false);
+
+    // Close menu when clicking a navigation link
+    var navLinks = mainMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mainMenu.classList.remove('is-visible');
+      }, false);
+    });
   }
-
-  // CRITICAL: Direct onclick for WebView compatibility
-  hamburgerIcon.onclick = function () {
-    mainMenu.classList.toggle("is-visible");
-  };
 })();
 
 (function() {
@@ -193,31 +200,12 @@
      * ============================================
      * HAMBURGER MENU FUNCTIONALITY (WebView-Safe)
      * ============================================
-     * WebView-safe implementation: immediate binding, no DOMContentLoaded
-     * Works reliably in Android WebView, mobile browsers, and desktop
+     * Already initialized at top of script before DOMContentLoaded
+     * This function is kept for future enhancements if needed
      */
     function initMobileMenu() {
-        const hamburgerIcon = document.getElementById('hamburger-menu-icon');
-        const navigationMenu = document.getElementById('main-navigation-menu');
-
-        if (!hamburgerIcon || !navigationMenu) {
-            console.error('Hamburger menu elements not found');
-            return;
-        }
-
-        // CRITICAL: Use direct onclick for WebView compatibility
-        // DO NOT use addEventListener or DOMContentLoaded delays
-        hamburgerIcon.onclick = function() {
-            navigationMenu.classList.toggle('is-visible');
-        };
-
-        // Close menu when clicking a navigation link (keep for UX)
-        const navLinks = navigationMenu.querySelectorAll('a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                navigationMenu.classList.remove('is-visible');
-            });
-        });
+        // Hamburger menu is already initialized at top of script
+        // This function can be removed if no additional functionality is needed
     }
 
     /**
