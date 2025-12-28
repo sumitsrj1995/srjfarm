@@ -29,6 +29,28 @@
  * ============================================
  */
 
+/**
+ * ============================================
+ * WEBVIEW-SAFE HAMBURGER MENU (CRITICAL)
+ * ============================================
+ * Runs immediately - NO DOMContentLoaded, NO delays
+ * Direct onclick binding for Android WebView compatibility
+ * ============================================
+ */
+(function () {
+  var hamburgerIcon = document.getElementById("hamburger-menu-icon");
+  var mainMenu = document.getElementById("main-navigation-menu");
+
+  if (!hamburgerIcon || !mainMenu) {
+    console.error("Hamburger menu elements not found");
+    return;
+  }
+
+  hamburgerIcon.onclick = function () {
+    mainMenu.classList.toggle("is-visible");
+  };
+})();
+
 (function() {
     'use strict';
 
@@ -169,7 +191,7 @@
      * ============================================
      * HAMBURGER MENU FUNCTIONALITY (WebView-Safe)
      * ============================================
-     * Simple toggle implementation using class toggling
+     * WebView-safe implementation: immediate binding, no DOMContentLoaded
      * Works reliably in Android WebView, mobile browsers, and desktop
      */
     function initMobileMenu() {
@@ -177,55 +199,22 @@
         const navigationMenu = document.getElementById('main-navigation-menu');
 
         if (!hamburgerIcon || !navigationMenu) {
+            console.error('Hamburger menu elements not found');
             return;
         }
 
-        // Toggle menu visibility
-        function toggleMenu() {
-            const isVisible = navigationMenu.classList.contains('is-visible');
-            
-            if (isVisible) {
-                navigationMenu.classList.remove('is-visible');
-                hamburgerIcon.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
-            } else {
-                navigationMenu.classList.add('is-visible');
-                hamburgerIcon.setAttribute('aria-expanded', 'true');
-                document.body.classList.add('menu-open');
-            }
-        }
+        // CRITICAL: Use direct onclick for WebView compatibility
+        // DO NOT use addEventListener or DOMContentLoaded delays
+        hamburgerIcon.onclick = function() {
+            navigationMenu.classList.toggle('is-visible');
+        };
 
-        // Click handler
-        hamburgerIcon.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Touch handler for WebView compatibility
-        hamburgerIcon.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Close menu when clicking a navigation link
+        // Close menu when clicking a navigation link (keep for UX)
         const navLinks = navigationMenu.querySelectorAll('a');
         navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 navigationMenu.classList.remove('is-visible');
-                hamburgerIcon.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
             });
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navigationMenu.classList.contains('is-visible')) {
-                navigationMenu.classList.remove('is-visible');
-                hamburgerIcon.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
-            }
         });
     }
 
