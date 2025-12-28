@@ -31,13 +31,19 @@
          Future: Add mobile menu toggle with JS
     -->
     <header class="header" role="banner">
-        <div class="container header__container">
-            <div class="header__logo" aria-label="Farm Fresh Logo">
-                🌾 Jagdale Farm
+        <div class="header__container">
+            <!-- Row 1: Logo + Language Toggle -->
+            <div class="header__top">
+                <div class="header__logo">
+                    🌾 Jagdale Farm
+                </div>
+                <button class="header__lang-toggle" id="langToggle">
+                    <span>EN</span> / <span>मराठी</span>
+                </button>
             </div>
-            <!-- Desktop Navigation -->
+            <!-- Row 2: Navigation Links -->
             <nav class="header__nav" role="navigation" aria-label="Main navigation">
-                <ul class="header__nav" style="list-style: none; display: flex; gap: 1.5rem;">
+                <ul class="header__nav-list">
                     <li class="header__nav-item">
                         <a href="index.html" class="header__nav-link header__nav-link--active" aria-current="page">Home</a>
                     </li>
@@ -50,34 +56,10 @@
                     <li class="header__nav-item">
                         <a href="contact.html" class="header__nav-link">Contact</a>
                     </li>
-                    <li class="header__nav-item">
-                        <button class="header__lang-toggle" id="langToggle" aria-label="Change language">
-                            <span>EN</span> / <span>मराठी</span>
-                        </button>
-                    </li>
                 </ul>
             </nav>
-            <!-- Hamburger Menu Icon -->
-            <div id="hamburger-menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </header>
-
-    <!-- Main Navigation Menu -->
-    <nav id="main-navigation-menu" role="navigation" aria-label="Mobile navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <button class="mobile-menu__lang-toggle" id="mobileLangToggle" aria-label="Change language">
-            <span>EN</span> / <span>मराठी</span>
-        </button>
-    </nav>
 
     <!-- ============================================
          HERO SECTION

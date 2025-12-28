@@ -29,31 +29,6 @@
  * ============================================
  */
 
-/**
- * ============================================
- * HAMBURGER MENU - SIMPLE DIRECT BINDING
- * ============================================
- */
-var hamburgerIcon = document.getElementById('hamburger-menu-icon');
-var mainMenu = document.getElementById('main-navigation-menu');
-
-if (hamburgerIcon && mainMenu) {
-  hamburgerIcon.onclick = function() {
-    if (mainMenu.classList.contains('is-visible')) {
-      mainMenu.classList.remove('is-visible');
-    } else {
-      mainMenu.classList.add('is-visible');
-    }
-  };
-
-  var navLinks = mainMenu.querySelectorAll('a');
-  for (var i = 0; i < navLinks.length; i++) {
-    navLinks[i].onclick = function() {
-      mainMenu.classList.remove('is-visible');
-    };
-  }
-}
-
 (function() {
     'use strict';
 
@@ -68,7 +43,6 @@ if (hamburgerIcon && mainMenu) {
         initProductCards();
         initExternalLinks();
         initLoadingStates();
-        initMobileMenu(); // Mobile menu functionality
         initLanguageSwitcher(); // Language toggle functionality
         initStickyHeader(); // Sticky header enhancement
         initServiceWorker(); // PWA support (optional)
@@ -188,18 +162,6 @@ if (hamburgerIcon && mainMenu) {
                 });
             }
         });
-    }
-
-    /**
-     * ============================================
-     * HAMBURGER MENU FUNCTIONALITY (WebView-Safe)
-     * ============================================
-     * Already initialized at top of script before DOMContentLoaded
-     * This function is kept for future enhancements if needed
-     */
-    function initMobileMenu() {
-        // Hamburger menu is already initialized at top of script
-        // This function can be removed if no additional functionality is needed
     }
 
     /**

@@ -176,27 +176,52 @@ a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Container: Desktop single row, Mobile two rows */
 .header__container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-sm) var(--spacing-sm);
+  gap: var(--spacing-md);
+}
+
+/* Row 1: Logo + Language Toggle */
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 .header__logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary);
+  white-space: nowrap;
 }
 
+/* Row 2: Navigation */
 .header__nav {
   display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.header__nav-list {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-md);
   list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .header__nav-item {
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .header__nav-link {
@@ -204,7 +229,6 @@ a:hover {
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius);
   transition: var(--transition);
-  /* WebView: Touch-friendly */
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -254,137 +278,6 @@ a:hover {
 .header__lang-toggle:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-}
-
-.mobile-menu__lang-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-md);
-  margin: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--color-accent);
-  border: 1px solid var(--color-primary);
-  border-radius: var(--border-radius);
-  color: var(--color-text-dark);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  min-height: 44px;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  text-decoration: none;
-}
-
-.mobile-menu__lang-toggle:active {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-/* ============================================
-   HAMBURGER MENU (WebView-Safe)
-   ============================================ */
-
-/* Hamburger Menu Icon */
-#hamburger-menu-icon {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  position: relative;
-  z-index: 9999;
-  min-width: 44px;
-  min-height: 44px;
-  -webkit-tap-highlight-color: rgba(127, 176, 105, 0.2);
-  touch-action: manipulation;
-}
-
-#hamburger-menu-icon span {
-  display: block;
-  height: 3px;
-  width: 25px;
-  background-color: var(--color-text-dark);
-  border-radius: 2px;
-  transition: var(--transition);
-}
-
-#hamburger-menu-icon:active {
-  opacity: 0.7;
-}
-
-#hamburger-menu-icon:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Main Navigation Menu - Hidden by default */
-#main-navigation-menu {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background: white;
-  z-index: 9998;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  max-height: calc(100vh - 70px);
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Menu visible when is-visible class is added */
-#main-navigation-menu.is-visible {
-  display: block !important;
-}
-
-/* Prevent body scroll when menu is open */
-body.menu-open {
-  overflow: hidden;
-}
-
-#main-navigation-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#main-navigation-menu ul li {
-  border-bottom: 1px solid var(--color-border);
-}
-
-#main-navigation-menu ul li a {
-  display: block;
-  padding: var(--spacing-md);
-  color: var(--color-text-dark);
-  text-decoration: none;
-  font-size: 1.125rem;
-  font-weight: 500;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  -webkit-tap-highlight-color: rgba(127, 176, 105, 0.2);
-  touch-action: manipulation;
-  transition: background-color 0.2s ease;
-}
-
-#main-navigation-menu ul li a:active {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-}
-
-/* Language toggle in mobile menu */
-#main-navigation-menu .mobile-menu__lang-toggle {
-  width: 100%;
-  margin: var(--spacing-sm) var(--spacing-md);
 }
 
 /* ============================================
@@ -745,15 +638,156 @@ body.menu-open {
    RESPONSIVE DESIGN (Tablet & Desktop)
    ============================================ */
 
-/* Mobile: Show hamburger menu, hide desktop nav */
+/* Mobile: Two-row header layout */
 @media (max-width: 768px) {
-  #hamburger-menu-icon {
-    display: flex;
+  /* ========== BODY & LAYOUT ========== */
+  body {
+    padding-top: 88px; /* Exact fit for two-row header */
   }
-  
+
+  .container {
+    padding: 0 var(--spacing-xs); /* Reduced side padding */
+  }
+
+  /* ========== HEADER ========== */
+  .header__container {
+    flex-direction: column;
+    padding: var(--spacing-xs) var(--spacing-xs); /* Reduced header padding */
+    gap: var(--spacing-xs);
+  }
+
+  /* Row 1: Logo on left, language toggle on right */
+  .header__top {
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  .header__logo {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  /* Row 2: Navigation centered */
   .header__nav {
-    display: none;
-    pointer-events: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header__nav-list {
+    gap: var(--spacing-sm);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header__nav-item {
+    font-size: 0.9rem;
+  }
+
+  .header__nav-link {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    min-height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .header__lang-toggle {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-xs);
+    min-height: 40px;
+    flex-shrink: 0;
+  }
+
+  /* ========== SECTIONS & SPACING ========== */
+  .section {
+    padding: var(--spacing-lg) 0; /* Reduced from var(--spacing-xl) */
+  }
+
+  .section--large {
+    padding: var(--spacing-lg) 0; /* Reduced vertical spacing */
+  }
+
+  /* ========== TYPOGRAPHY ========== */
+  h1 {
+    font-size: 1.75rem; /* Reduced from 2rem */
+    margin-bottom: var(--spacing-sm); /* Reduced from var(--spacing-md) */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Reduced from 1.75rem */
+    margin-bottom: var(--spacing-sm);
+  }
+
+  h3 {
+    font-size: 1.25rem; /* Reduced from 1.5rem */
+    margin-bottom: var(--spacing-sm);
+  }
+
+  p {
+    margin-bottom: var(--spacing-xs); /* Reduced from var(--spacing-sm) */
+  }
+
+  /* ========== HERO SECTION ========== */
+  .hero {
+    padding: var(--spacing-lg) 0; /* Reduced from var(--spacing-xl) */
+  }
+
+  .hero__title {
+    font-size: 1.75rem; /* Reduced */
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero__tagline {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero__intro {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* ========== CARDS & GRIDS ========== */
+  .product-card,
+  .feature-card,
+  .testimonial-card {
+    padding: var(--spacing-md); /* Reduced from larger padding */
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* ========== BUTTONS ========== */
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-md); /* More compact */
+    font-size: 0.95rem;
+  }
+
+  .btn--large {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+
+  /* ========== FORMS ========== */
+  .form-group {
+    margin-bottom: var(--spacing-md); /* Reduced form spacing */
+  }
+
+  input,
+  textarea,
+  select {
+    padding: var(--spacing-xs) var(--spacing-sm); /* Compact form fields */
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    padding: var(--spacing-lg) var(--spacing-xs); /* Reduced footer padding */
+  }
+
+  /* ========== FEATURES & TESTIMONIALS ========== */
+  .features {
+    gap: var(--spacing-md); /* Reduced grid gap */
+  }
+
+  .testimonials-grid {
+    gap: var(--spacing-md);
   }
 }
 
