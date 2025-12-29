@@ -14,8 +14,11 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <title>Jagdale Farm - Organic Milk & Ghee | Local Farm</title>
+    <title>Jagdale's Farm - Organic Milk & Ghee | Local Farm</title>
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
@@ -35,7 +38,7 @@
             <!-- Row 1: Logo + Language Toggle -->
             <div class="header__top">
                 <div class="header__logo">
-                    🌾 Jagdale Farm
+                    🌾 Jagdale's Farm
                 </div>
                 <button class="header__lang-toggle" id="langToggle">
                     <span>EN</span> / <span>मराठी</span>
@@ -70,7 +73,8 @@
     <section class="hero section" role="main">
         <div class="container">
             <h1 class="hero__title">Farm Fresh Organic Dairy</h1>
-            <p class="hero__tagline">Pure. Natural. Trusted.</p>
+            <p class="hero__tagline">Pure by nature. Trusted by families.</p>
+            <p class="hero__tagline--mr" style="display:none">नैसर्गिक शुद्धता. कुटुंबांचा विश्वास.</p>
             <p class="hero__intro">
                 We are a family-owned farm dedicated to providing you with the freshest, 
                 most natural milk and ghee. Our cows are raised with care, fed organic feed, 
@@ -152,6 +156,7 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-card__image" aria-label="Fresh Milk Product">
+                        <img src="images/cows.jpeg" alt="Fresh organic milk" loading="lazy" />
                         🥛
                     </div>
                     <div class="product-card__content">
@@ -160,7 +165,7 @@
                             Daily fresh milk from our grass-fed cows. Rich in nutrients, 
                             naturally creamy, and full of flavor.
                         </p>
-                        <div class="product-card__price">₹60/Liter</div>
+                        <div class="product-card__price">₹70/Liter</div>
                         <div class="product-card__quantity">Available in 1L, 2L, 5L packs</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
@@ -169,6 +174,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-card__image" aria-label="Pure Ghee Product">
+                        <img src="images/cows.jpeg" alt="Pure desi ghee" loading="lazy" />
                         🧈
                     </div>
                     <div class="product-card__content">
@@ -177,7 +183,7 @@
                             Traditional method ghee made from our organic milk. 
                             Rich, aromatic, and perfect for your kitchen.
                         </p>
-                        <div class="product-card__price">₹550/Kg</div>
+                        <div class="product-card__price">₹1000/Kg</div>
                         <div class="product-card__quantity">Available in 500g, 1Kg packs</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
@@ -252,8 +258,8 @@
     -->
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <p class="footer__text">
-                &copy; 2025 Farm Fresh. All rights reserved.
+                <p class="footer__text">
+                &copy; 2025 Jagdale's Farm. All rights reserved.
             </p>
             <p class="footer__text">
                 <a href="contact.html" class="footer__link">Contact Us</a> | 

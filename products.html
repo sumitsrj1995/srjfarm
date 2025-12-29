@@ -14,8 +14,11 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <title>Our Products - Farm Fresh Organic Dairy</title>
+    <title>Our Products - Jagdale's Farm</title>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,7 +29,7 @@
             <!-- Row 1: Logo + Language Toggle -->
             <div class="header__top">
                 <div class="header__logo">
-                    🌾 Jagdale Farm
+                    🌾 Jagdale's Farm
                 </div>
                 <button class="header__lang-toggle" id="langToggle">
                     <span>EN</span> / <span>मराठी</span>
@@ -59,7 +62,8 @@
     <section class="hero section" role="main">
         <div class="container">
             <h1 class="hero__title">Our Products</h1>
-            <p class="hero__tagline">Fresh, Organic, and Delivered to Your Doorstep</p>
+            <p class="hero__tagline">Pure by nature. Trusted by families.</p>
+            <p class="hero__tagline--mr" style="display:none">नैसर्गिक शुद्धता. कुटुंबांचा विश्वास.</p>
             <p class="hero__intro">
                 All our products are made with care, using traditional methods and 
                 the highest quality ingredients. Order via WhatsApp for quick delivery.
@@ -85,6 +89,7 @@
                 <!-- Product 1: Fresh Milk -->
                 <div class="product-card" data-product-id="milk-1l" data-product-name="Fresh Organic Milk - 1L">
                     <div class="product-card__image" aria-label="Fresh Organic Milk">
+                        <img src="images/cows.jpeg" alt="Fresh organic milk" loading="lazy" />
                         🥛
                     </div>
                     <div class="product-card__content">
@@ -94,7 +99,7 @@
                             protein, and natural vitamins. Perfect for your morning coffee, 
                             tea, or cereal.
                         </p>
-                        <div class="product-card__price">₹60</div>
+                        <div class="product-card__price">₹70</div>
                         <div class="product-card__quantity">Per Liter</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
@@ -106,6 +111,7 @@
                 <!-- Product 2: Fresh Milk 2L -->
                 <div class="product-card" data-product-id="milk-2l" data-product-name="Fresh Organic Milk - 2L">
                     <div class="product-card__image" aria-label="Fresh Organic Milk 2L">
+                        <img src="images/cows.jpeg" alt="Fresh organic milk 2L" loading="lazy" />
                         🥛
                     </div>
                     <div class="product-card__content">
@@ -114,8 +120,8 @@
                             Same great quality in a larger pack. Perfect for families. 
                             Fresh daily delivery available.
                         </p>
-                        <div class="product-card__price">₹115</div>
-                        <div class="product-card__quantity">Per 2 Liters (Save ₹5)</div>
+                        <div class="product-card__price">₹125</div>
+                        <div class="product-card__quantity">Per 2 Liters (Save ₹15)</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
                         </span>
@@ -125,6 +131,7 @@
                 <!-- Product 3: Fresh Milk 5L -->
                 <div class="product-card" data-product-id="milk-5l" data-product-name="Fresh Organic Milk - 5L">
                     <div class="product-card__image" aria-label="Fresh Organic Milk 5L">
+                        <img src="images/cows.jpeg" alt="Fresh organic milk 5L" loading="lazy" />
                         🥛
                     </div>
                     <div class="product-card__content">
@@ -133,8 +140,8 @@
                             Best value for large families or regular customers. 
                             Bulk pricing available for weekly orders.
                         </p>
-                        <div class="product-card__price">₹280</div>
-                        <div class="product-card__quantity">Per 5 Liters (Save ₹20)</div>
+                        <div class="product-card__price">₹310</div>
+                        <div class="product-card__quantity">Per 5 Liters (Save ₹40)</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
                         </span>
@@ -144,6 +151,7 @@
                 <!-- Product 4: Pure Desi Ghee 500g -->
                 <div class="product-card" data-product-id="ghee-500g" data-product-name="Pure Desi Ghee - 500g">
                     <div class="product-card__image" aria-label="Pure Desi Ghee">
+                        <img src="images/cows.jpeg" alt="Pure desi ghee" loading="lazy" />
                         🧈
                     </div>
                     <div class="product-card__content">
@@ -153,7 +161,7 @@
                             Rich, aromatic, and perfect for cooking, drizzling, or 
                             adding to your roti.
                         </p>
-                        <div class="product-card__price">₹280</div>
+                        <div class="product-card__price">₹500</div>
                         <div class="product-card__quantity">Per 500g</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
@@ -164,6 +172,7 @@
                 <!-- Product 5: Pure Desi Ghee 1Kg -->
                 <div class="product-card" data-product-id="ghee-1kg" data-product-name="Pure Desi Ghee - 1Kg">
                     <div class="product-card__image" aria-label="Pure Desi Ghee 1Kg">
+                        <img src="images/cows.jpeg" alt="Pure desi ghee 1kg" loading="lazy" />
                         🧈
                     </div>
                     <div class="product-card__content">
@@ -172,7 +181,7 @@
                             Our best-selling ghee in a larger pack. Made with the 
                             same traditional methods and quality standards.
                         </p>
-                        <div class="product-card__price">₹550</div>
+                        <div class="product-card__price">₹1000</div>
                         <div class="product-card__quantity">Per 1Kg (Save ₹10)</div>
                         <span class="product-card__availability product-card__availability--available">
                             ✓ Available
@@ -183,6 +192,7 @@
                 <!-- Product 6: Curd (Future Product) -->
                 <div class="product-card" data-product-id="curd-500g" data-product-name="Fresh Organic Curd - 500g">
                     <div class="product-card__image" aria-label="Fresh Organic Curd">
+                        <img src="images/cows.jpeg" alt="Fresh organic curd" loading="lazy" />
                         🍶
                     </div>
                     <div class="product-card__content">
@@ -269,10 +279,9 @@
                     </p>
                 </div>
                 <div class="feature-card mb-md">
-                    <h3 class="feature-card__title">💰 Fair Pricing</h3>
+                    <h3 class="feature-card__title">💰 Quality Worth Every Rupee</h3>
                     <p class="feature-card__text">
-                        We keep our prices fair and accessible. Quality organic products 
-                        shouldn't break the bank.
+                        We deliver uncompromised quality through ethical farming, careful handling, and purity you can trust—priced honestly for what you receive.
                     </p>
                 </div>
             </div>
@@ -283,7 +292,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
             <p class="footer__text">
-                &copy; 2025 Farm Fresh. All rights reserved.
+                &copy; 2025 Jagdale's Farm. All rights reserved.
             </p>
             <p class="footer__text">
                 <a href="contact.html" class="footer__link">Contact Us</a> | 

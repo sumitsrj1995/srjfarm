@@ -14,8 +14,11 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <title>Contact Us - Jagdale Farm Organic Dairy</title>
+    <title>Contact Us - Jagdale's Farm Organic Dairy</title>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,7 +29,7 @@
             <!-- Row 1: Logo + Language Toggle -->
             <div class="header__top">
                 <div class="header__logo">
-                    🌾 Jagdale Farm
+                    🌾 Jagdale's Farm
                 </div>
                 <button class="header__lang-toggle" id="langToggle">
                     <span>EN</span> / <span>मराठी</span>
@@ -59,7 +62,8 @@
     <section class="hero section" role="main">
         <div class="container">
             <h1 class="hero__title">Get in Touch</h1>
-            <p class="hero__tagline">We're Here to Help You</p>
+            <p class="hero__tagline">Pure by nature. Trusted by families.</p>
+            <p class="hero__tagline--mr" style="display:none">नैसर्गिक शुद्धता. कुटुंबांचा विश्वास.</p>
             <p class="hero__intro">
                 Have questions? Want to place an order? Or just want to visit our farm? 
                 We'd love to hear from you!
@@ -82,7 +86,7 @@
                     product list and we'll confirm delivery details.
                 </p>
                 <a 
-                    href="https://wa.me/91xxxxxxxxx?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order" 
+                    href="https://wa.me/919011463179?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order" 
                     class="btn btn--whatsapp btn--large"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -90,9 +94,6 @@
                 >
                     📱 Order via WhatsApp
                 </a>
-                <p class="mt-md" style="font-size: 0.875rem; color: var(--color-text-light);">
-                    <em>Note: Phone number updated to 91xxxxxxxxx</em>
-                </p>
             </div>
         </div>
     </section>
@@ -120,8 +121,8 @@
                 <div class="feature-card">
                     <h3 class="feature-card__title">📧 Email</h3>
                     <p class="feature-card__text">
-                        <a href="mailto:info@farmfresh.com" style="color: var(--color-primary); font-weight: 600;">
-                            sumitsrj@gmail.com
+                        <a href="mailto:jagdalefarming@gmail.com" style="color: var(--color-primary); font-weight: 600;">
+                            jagdalefarming@gmail.com
                         </a>
                     </p>
                     <p class="feature-card__text" style="font-size: 0.875rem; margin-top: var(--spacing-xs);">
@@ -145,34 +146,17 @@
     </section>
 
     <!-- ============================================
-         GOOGLE MAP EMBED PLACEHOLDER
+         GOOGLE MAP LOCATION
          ============================================
-         Future: Replace with actual Google Maps embed
-         Instructions: Get embed code from Google Maps
     -->
     <section class="section" aria-labelledby="location">
         <div class="container">
             <h2 id="location" class="text-center mb-lg">Find Us</h2>
             <div class="map-container">
-                <p style="text-align: center; color: var(--color-text-light);">
-                    📍 Google Map will be embedded here<br>
-                    <em style="font-size: 0.875rem;">
-                        To add: Go to Google Maps → Find your location → Share → Embed a map → Copy code
-                    </em>
-                </p>
+                <a href="https://maps.app.goo.gl/5vwXcDMwPMRDH3Vd9" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large" style="display: inline-block; margin: 0 auto;">
+                    📍 View on Google Maps
+                </a>
             </div>
-            <!-- 
-            Future: Replace above div with actual Google Maps embed code:
-            <iframe 
-                src="YOUR_GOOGLE_MAPS_EMBED_URL" 
-                width="100%" 
-                height="300" 
-                style="border:0; border-radius: 8px;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            -->
         </div>
     </section>
 
@@ -188,6 +172,9 @@
     <section class="section" style="background-color: var(--color-white);" aria-labelledby="contact-form">
         <div class="container">
             <h2 id="contact-form" class="text-center mb-lg">Send Us a Message</h2>
+            <p class="text-center mb-lg" style="color: var(--color-text-light); font-size: 1rem;">
+                Reach out to us via WhatsApp for general questions or information.
+            </p>
             <form class="contact-form" id="contactForm" aria-label="Contact form">
                 <div class="form-group">
                     <label for="name" class="form-group__label">Your Name *</label>
@@ -238,12 +225,12 @@
                     ></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn--primary" style="width: 100%;">
-                    Send Message
+                <button type="button" onclick="sendToWhatsApp()" class="btn btn--primary" style="width: 100%;">
+                    📱 Send via WhatsApp
                 </button>
                 
                 <p style="text-align: center; margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-light);">
-                    <em>Note: Form submission requires backend setup. Currently for display only.</em>
+                    WhatsApp will open with your message. You can review before sending.
                 </p>
             </form>
         </div>
@@ -274,7 +261,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
             <p class="footer__text">
-                &copy; 2025 Farm Fresh. All rights reserved.
+                &copy; 2025 Jagdale's Farm. All rights reserved.
             </p>
             <p class="footer__text">
                 <a href="index.html" class="footer__link">Home</a> | 
@@ -285,6 +272,32 @@
 
     <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        /**
+         * Send message via WhatsApp
+         * Opens WhatsApp with pre-filled message without backend submission
+         */
+        function sendToWhatsApp() {
+            const nameInput = document.querySelector("#name");
+            const emailInput = document.querySelector("#email");
+            const messageInput = document.querySelector("#message");
+            const message = messageInput.value.trim();
+
+            if (!message) {
+                alert("Please enter your message.");
+                return;
+            }
+
+            const name = nameInput.value.trim() || "Friend";
+            const email = emailInput.value.trim() ? `\nEmail: ${emailInput.value.trim()}` : "";
+            const phoneNumber = "919011463179"; // Jagdale's Farm WhatsApp number
+
+            const introText = `Hello Jagdale's Farm,%0A%0AMy name is ${name}.${email}%0A%0AMessage:%0A`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${introText}${encodeURIComponent(message)}`;
+
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
 </body>
 </html>
 

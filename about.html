@@ -14,8 +14,11 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <title>About Our Farm - Farm Fresh Organic Dairy</title>
+    <title>About Our Farm - Jagdale's Farm</title>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,7 +29,7 @@
             <!-- Row 1: Logo + Language Toggle -->
             <div class="header__top">
                 <div class="header__logo">
-                    🌾 Jagdale Farm
+                    🌾 Jagdale's Farm
                 </div>
                 <button class="header__lang-toggle" id="langToggle">
                     <span>EN</span> / <span>मराठी</span>
@@ -61,7 +64,8 @@
     <section class="hero section" role="main">
         <div class="container">
             <h1 class="hero__title">Our Farm Story</h1>
-            <p class="hero__tagline">No Pesticides, No Chemicals for over two decades</p>
+            <p class="hero__tagline">Pure by nature. Trusted by families.</p>
+            <p class="hero__tagline--mr" style="display:none">नैसर्गिक शुद्धता. कुटुंबांचा विश्वास.</p>
             <div style="max-width: 800px; margin: 0 auto;">
                 <p class="hero__intro">
                     We are a family-owned farm dedicated to providing you with the freshest, 
@@ -197,8 +201,8 @@
             <h2 id="farm-photos" class="text-center mb-lg">Farm Photos</h2>
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-card__image" style="height: 250px;" aria-label="Farm Photo Placeholder">
-                        📸 Farm View
+                    <div class="product-card__image" style="height: 250px;" aria-label="Farm Photo">
+                        <img src="images/cows.jpeg" alt="Farm view with cows" loading="lazy" />
                     </div>
                     <div class="product-card__content">
                         <h3 class="product-card__title">Our Farm</h3>
@@ -208,8 +212,9 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-card__image" style="height: 250px;" aria-label="Cows Photo Placeholder">
-                        🐄 Happy Cows
+                    <div class="product-card__image" style="height: 250px;" aria-label="Cows Photo">
+
+                        <img src="images/cows.jpeg" alt="Cows grazing in the pasture" loading="lazy" />
                     </div>
                     <div class="product-card__content">
                         <h3 class="product-card__title">Our Cows</h3>
@@ -219,8 +224,8 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-card__image" style="height: 250px;" aria-label="Milking Photo Placeholder">
-                        🥛 Milking Facility
+                    <div class="product-card__image" style="height: 250px;" aria-label="Milking Photo">
+                        <img src="images/cows.jpeg" alt="Milking facility" loading="lazy" />
                     </div>
                     <div class="product-card__content">
                         <h3 class="product-card__title">Milking Facility</h3>
@@ -231,7 +236,7 @@
                 </div>
             </div>
             <p class="text-center mt-lg" style="color: var(--color-text-light);">
-                <em>Note: Replace these placeholders with actual farm photos</em>
+
             </p>
         </div>
     </section>
@@ -269,7 +274,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
             <p class="footer__text">
-                &copy; 2025 Farm Fresh. All rights reserved.
+                &copy; 2025 Jagdale's Farm. All rights reserved.
             </p>
             <p class="footer__text">
                 <a href="contact.html" class="footer__link">Contact Us</a> | 

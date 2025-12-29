@@ -29,7 +29,7 @@ const translations = {
         // Home Page
         home: {
             title: "Farm Fresh Organic Dairy",
-            tagline: "Pure. Natural. Trusted.",
+            tagline: "Pure by nature. Trusted by families.",
             intro: "We are a family-owned farm dedicated to providing you with the freshest, most natural milk and ghee. Our cows are raised with care, fed organic feed, and treated with respect. Every product you receive is a testament to our commitment to quality and ethical farming.",
             whyDifferent: "Why Our Farm is Different",
             featuredProducts: "Our Products",
@@ -142,7 +142,7 @@ const translations = {
         // Home Page
         home: {
             title: "फार्म फ्रेश ऑर्गॅनिक डेअरी",
-            tagline: "शुद्ध. नैसर्गिक. विश्वसनीय.",
+            tagline: "नैसर्गिक शुद्धता. कुटुंबांचा विश्वास.",
             intro: "आम्ही एक कुटुंब-मालकीचे शेत आहोत जे तुम्हाला सर्वात ताजे, नैसर्गिक दूध आणि तूप देण्यासाठी समर्पित आहे. आमच्या गायींची काळजी घेतली जाते, त्यांना ऑर्गॅनिक खाद्य दिले जाते आणि आदराने वागवले जाते. तुम्हाला मिळणारा प्रत्येक उत्पादन हा आमच्या गुणवत्ता आणि नैतिक शेतीच्या वचनबद्धतेचा पुरावा आहे.",
             whyDifferent: "आमचे शेत वेगळे का?",
             featuredProducts: "आमची उत्पादने",
